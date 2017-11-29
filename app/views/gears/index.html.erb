@@ -11,7 +11,7 @@
     <%@gears.each do |gear| %>
     <%= link_to gear_path(gear), method: :get do %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_url 'switchblade.jpg' %>');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
           <div class="card-category">Matériel</div>
           <div class="card-description">
             <h2><%= gear.gear_type.capitalize %> </h2>

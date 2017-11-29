@@ -53,7 +53,7 @@
         <li><%= link_to root_path , method: :get do %>                  <!--changer le path -->
                <%= t(".profile", default: "Prepose a gear") %>
               <% end %></li>
-        <li><%= link_to new_user_session_path, method: :get do %>     <!--changer le path -->
+        <li><% link_to new_user_session_path, method: :get do %>     <!--changer le path -->
                <%= t(".profile", default: "My dashboard") %>
               <% end %></li>
         <li><%= link_to edit_user_registration_path, method: :get do %>   <!--changer le path -->

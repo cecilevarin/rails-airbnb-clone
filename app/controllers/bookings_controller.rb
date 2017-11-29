@@ -5,13 +5,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @Booking = Booking.new(booking_params)
-    @Booking.user = current_user
+    @gear = Gear.find(params[:gear_id])
+    @booking = Booking.new(booking_params)
+    @booking.start_date = start_date
+    @booking.end_date = end_date
+    @booking.user = current_user
+    @booking.gear = @gear
 
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking.id)
     else
-      render :new
+      render 'gears/show'
     end
   end
 
@@ -25,6 +29,8 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @gear = @booking.gear
   end
 
   def update
@@ -45,8 +51,17 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:status, :user_id, :gear_id, :start_date, :end_date, :price)
+    params.require(:booking).permit(:status, :user_id, :gear_id, :price)
   end
+
+  def start_date
+    Date.parse(params[:booking][:start_date])
+  end
+
+   def end_date
+    Date.parse(params[:booking][:end_date])
+  end
+
 end
 
 

@@ -1,25 +1,39 @@
-<div class="text-center">
-  <h1>Here is all the kite gear available for rent</h1>
-</div>
+<div class="container">
 
-<div class="list-group">
-  <ul>
+
+  <div class="text-center row" >
+    <div class="col-xs-12">
+      <h1>Here is all the kite gear available for rent</h1>
+    </div>
+  </div>
+
+  <div class="cards row">
     <%@gears.each do |gear| %>
-      <li class=list-group-items>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <%# url(<%="#{gear.photo}"%>
+    <%= link_to gear_path(gear), method: :get do %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_url 'switchblade.jpg' %>');">
+          <div class="card-category">Matériel</div>
           <div class="card-description">
-            <h3><%= gear.brand %></h3>
-            <h3><%= gear.model %></h3>
-            <h3><%= gear.size %></h3>
-
+            <h2><%= gear.gear_type.capitalize %> </h2>
+            <p><%= gear.model %></p>
           </div>
+                 <!--changer le path -->
+                <!--  -->
+
 
           <%=link_to "Go to gear page", gear_path(gear)%>
-        </div>
 
-      </li>
+        </div>
+      </div>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
 </div>
+
+
+
+
+
+
+
 

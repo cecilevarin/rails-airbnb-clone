@@ -1,5 +1,6 @@
 class Gear < ApplicationRecord
   belongs_to :user
+  has_many :bookings
   validates :type, inclusion: { in: %w(board kite),
     message: "%{value} is not a valid gear" }
    validates :daily_price, presence: true

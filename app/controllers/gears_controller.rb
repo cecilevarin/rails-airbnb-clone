@@ -13,6 +13,7 @@ class GearsController < ApplicationController
 
   def new
     @gear = Gear.new
+    @errors = nil;
   end
 
   def create
@@ -20,6 +21,7 @@ class GearsController < ApplicationController
     if @gear.save
       redirect_to gear_path(@gear)
     else
+      @errors =@gear.errors.messages
       render :new
     end
   end
@@ -46,6 +48,9 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.require(:gear).permit(:gear_type, :year, :brand, :model, :size, :daily_price, :user_id, :description, :start_date, :end_date)
+    params.require(:gear).permit(
+      :gear_type, :year, :brand, :model, :size, :daily_price, :user_id,
+      :description, :start_date, :end_date, photos: []
+    )
   end
 end

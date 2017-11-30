@@ -65,7 +65,7 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="type" null="1" autoincrement="0">
+<row name="gear_type" null="1" autoincrement="0">
 <datatype>ENUM</datatype>
 <default>NULL</default></row>
 <row name="year" null="1" autoincrement="0">
@@ -100,7 +100,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="740" y="50" name="Bookings">
+<table x="626" y="50" name="Bookings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -129,4 +129,3 @@
 </key>
 </table>
 </sql>
-Database_Wagon

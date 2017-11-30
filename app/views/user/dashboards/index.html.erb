@@ -1,6 +1,111 @@
-<h1>Dashboards#index</h1>
-<p>Find me in app/views/dashboards/index.html.erb</p>
 <div class="container">
+  <div class="text-center">
+    <h1><%= current_user.first_name %>'s Kitelib dashboard</h1>
+  </div>
+  <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="bordure_grise" >
+          <h3><i class="fa fa-address-card-o" aria-hidden="true"></i>My gear for rent</h3>
+          <div class="fond-blanc">
+
+              <% @user_gears.each do |gear| %>
+                <div class="row">
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+                      <p><%= gear.gear_type %> <%= gear.brand %></p>
+                      <p><%= gear.model %> size: <%= gear.size %></p>
+                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'NorthEvo10.png' %>');">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+                      <% if gear.bookings.count == 0 %>
+                      <p>No booking on this gear</p>
+                      <% else %>
+                        <% gear.bookings.each do |b| %>
+                          booking Nº: <%= b.id %>
+                          <% if b.status == 0 %>
+                             <p>request pending from : <%= b.user.first_name %></p>
+                           <% else %>
+                             <p>booking ongoing with : <%= b.user.first_name %>
+                              <br>status : <%= b.status %>
+                              <br>from: <%= b.start_date %>
+                              to: <%= b.end_date %>
+                              </p>
+                           <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+
+                    </div>
+                  </div>
+
+                </div>
+               <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="bordure_grise" >
+          <h3><i class="fa fa-calendar" aria-hidden="true"></i>My bookings</h3>
+          <div class="fond-blanc">
+              <p>$booking $date $price_calcul $status</p>
+              <hr>
+              <%= link_to "Modifier ma reservation", edit_user_password_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
+          </div>
+        </div>
+    </div>
+  </div>
 
 </div>
 
+<style>
+  .bordure_grise h3 {
+  background-color: #ccc;
+  border-bottom: 1px grey solid;
+  margin:0;
+  font-size: 1.2em;
+  padding: 0.4em;
+  }
+  .bordure_grise {
+  border: 1px grey solid;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 2em;
+  }
+  .bordure_grise a {
+    color:white;
+  }
+  .bordure_grise i {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .bordure_grise p {
+    font-size: 12px;
+  }
+  .avatar {
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+  }
+  .fond-blanc {
+    background-color: white;
+    padding: 15px;
+  }
+  .etoiles {
+    text-align: left;
+  }
+  .com-name {
+    text-align: right;
+  }
+</style>

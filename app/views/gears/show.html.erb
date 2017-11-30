@@ -11,8 +11,10 @@
    <%= f.button :submit, "Book this gear" %>
   <% end %>
 
-  <p>photo 1</p>
-  <p>photo 2</p>
-  <p>photo 3</p>
+<% if @gear.photos? %>
+  <% @gear.photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
+<% end %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
 </div>

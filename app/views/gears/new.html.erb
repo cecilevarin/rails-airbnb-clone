@@ -6,7 +6,7 @@
       <%= render 'form' %>
       <%= @errors %>
 
-<% if @gear.photo? %>
+<% if @gear.photos? %>
   <%= cl_image_tag @gear.photo.path, width: 200, height: 300, crop: :fill %>
 <% end %>
 

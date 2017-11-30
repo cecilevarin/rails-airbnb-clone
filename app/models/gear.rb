@@ -8,5 +8,5 @@ class Gear < ApplicationRecord
   validates :description, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  has_attachment :photo, maximum: 3
+  has_attachments :photos, maximum: 3
 end

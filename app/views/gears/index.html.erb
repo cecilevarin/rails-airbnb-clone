@@ -6,111 +6,106 @@
 
   <div class="text-center row" >
     <div class="col-xs-12">
-      <h2>Here is all the kite gear available for rent</h2>
+      <h2>All kite gears available for rent</h2>
     </div>
   </div>
 
-  <div class="cards row">
-    <%@gears.each do |gear| %>
-    <%= link_to gear_path(gear), method: :get do %>
+  <div class="row" id="cards">
+  <%@gears.each do |gear| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
-      </div>
-      <% end %>
-
        <%= link_to gear_path(gear), method: :get do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
       </div>
-      <% end %>
 
+   <div class="col-xs-12 col-sm-4">
        <%= link_to gear_path(gear), method: :get do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
       </div>
-      <% end %>
+
+    <div class="col-xs-12 col-sm-4">
+       <%= link_to gear_path(gear), method: :get do %>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
+      </div>
+
     <% end %>
   </div>
 
-  <div class="cards row">
+  <div class="row">
     <%@gears.each do |gear| %>
-    <%= link_to gear_path(gear), method: :get do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
-      </div>
-      <% end %>
-
+ <div class="col-xs-12 col-sm-4">
        <%= link_to gear_path(gear), method: :get do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
       </div>
-      <% end %>
 
+     <div class="col-xs-12 col-sm-4">
        <%= link_to gear_path(gear), method: :get do %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
-          <div class="card-category">
-          Matériel</div>
-          <div class="card-description">
-            <h2><%= gear.gear_type.capitalize %> </h2>
-            <p><%= gear.model %></p>
-          </div>
-                 <!--changer le path -->
-                <!--  -->
-
-        </div>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
       </div>
-      <% end %>
+
+    <div class="col-xs-12 col-sm-4">
+       <%= link_to gear_path(gear), method: :get do %>
+           <div class="card">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                 <div class="card-description">
+                   <h2><%= gear.gear_type.capitalize %> </h2>
+                   <p><%= gear.model %></p>
+                </div>
+                  <!--changer le path -->
+                 <!--  -->
+                 </div>
+           </div>
+    <% end %>
+      </div>
     <% end %>
   </div>
 

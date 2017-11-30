@@ -1,0 +1,10 @@
+<%= simple_form_for(@gear) do |f| %>
+
+  <%= f.input :gear_type, collection: ['board','kite'] %>
+  <%= f.input :brand, placeholder: "For example North, Slingshot..." %>
+  <%= f.input :model, placeholder: "What is the model of your gear" %>
+  <%= f.input :year, placeholder: "For example : 2016" %>
+  <%= f.input :description, placeholder: "Add a description of your gear" %>
+  <%= f.input :year, placeholder: "Input pictures" %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>

@@ -4,7 +4,12 @@
   <%= f.input :brand, placeholder: "For example North, Slingshot..." %>
   <%= f.input :model, placeholder: "What is the model of your gear" %>
   <%= f.input :year, placeholder: "For example : 2016" %>
+  <%= f.input :size %>
   <%= f.input :description, placeholder: "Add a description of your gear" %>
-  <%= f.input :year, placeholder: "Input pictures" %>
+  <%= f.input :photo, as: :attachinary %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :daily_price %>
+
   <%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>

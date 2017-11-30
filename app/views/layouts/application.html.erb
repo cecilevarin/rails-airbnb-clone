@@ -15,7 +15,10 @@
 
     <%= render "layouts/navbar"%>
     <%= render 'shared/flashes' %>
+    <div class="view">
     <%= yield %>
+    </div>
+
     <%= render "layouts/footer"%>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>

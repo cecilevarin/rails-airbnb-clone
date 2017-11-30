@@ -23,12 +23,20 @@
                   <div class="col-xs-4">
                     <div class="bordure_grise">
                       <% if gear.bookings.count == 0 %>
-                      <p>No booking on this gear</p>
+                      No booking on this gear
                       <% else %>
                         <% gear.bookings.each do |b| %>
                           booking Nº: <%= b.id %>
                           <% if b.status == 0 %>
-                             <p>request pending from : <%= b.user.first_name %></p>
+                             <div>
+                               <p>request pending from : <%= b.user.first_name %>
+                               <br>from: <%= b.start_date %>
+                                to: <%= b.end_date %>
+                                </p>
+                                <div class="bordure_grise">
+                                    ACCEPT THIS REQUEST?
+                                </div>
+                              </div>
                            <% else %>
                              <p>booking ongoing with : <%= b.user.first_name %>
                               <br>status : <%= b.status %>

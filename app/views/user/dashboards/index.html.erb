@@ -1,74 +1,70 @@
 <div class="container">
-  <h1><%= current_user.first_name %>'s Kitelib dashboard</h1>
+  <div class="text-center">
+    <h1><%= current_user.first_name %>'s Kitelib dashboard</h1>
+  </div>
   <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="bordure_grise" >
+          <h3><i class="fa fa-address-card-o" aria-hidden="true"></i>My gear for rent</h3>
+          <div class="fond-blanc">
 
-      <div class="col-xs-12 col-md-4 ">
-        <div class="bordure_grise fond-blanc" >
-          <div style="  padding: 15px;">
-              <%= image_tag "http://kitt.lewagon.com/placeholder/users/cecilevarin", class: "avatar" %>
-              <p> $name</p>
-              <%= link_to "Modifier mes informations", edit_user_registration_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
-              <%= link_to user_registration_path, class: "btn btn-danger btn-lg  navbar-wagon-link",
-              data: { confirm: "Etes vous certain?" },
-              method: :delete  do%>
-                supprimer mon compte
-              <% end  %>
-            </div>
+              <% @user_gears.each do |gear| %>
+                <div class="row">
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+                      <p><%= gear.gear_type %> <%= gear.brand %></p>
+                      <p><%= gear.model %> size: <%= gear.size %></p>
+                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'NorthEvo10.png' %>');">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+                      <% if gear.bookings.count == 0 %>
+                      <p>No booking on this gear</p>
+                      <% else %>
+                        <% gear.bookings.each do |b| %>
+                          booking Nº: <%= b.id %>
+                          <% if b.status == 0 %>
+                             <p>request pending from : <%= b.user.first_name %></p>
+                           <% else %>
+                             <p>booking ongoing with : <%= b.user.first_name %>
+                              <br>status : <%= b.status %>
+                              <br>from: <%= b.start_date %>
+                              to: <%= b.end_date %>
+                              </p>
+                           <% end %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="bordure_grise">
+
+                    </div>
+                  </div>
+
+                </div>
+               <% end %>
         </div>
-
-          <div class="bordure_grise fond-blanc" >
-            <h3><i class="fa fa-comments" aria-hidden="true"></i>Mes messages</h3>
-            <div style="  padding: 15px;">
-                <p> 1 message non lu !</p>
-                <%= link_to "Voir mes messages", edit_user_password_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
-            </div>
-          </div>
       </div>
+    </div>
+  </div>
 
-
-      <div class="col-xs-12 col-md-7">
-        <div class="bordure_grise fond-blanc" >
-          <h3><i class="fa fa-calendar" aria-hidden="true"></i>Mes reservations</h3>
-          <div style="  padding: 15px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="bordure_grise" >
+          <h3><i class="fa fa-calendar" aria-hidden="true"></i>My bookings</h3>
+          <div class="fond-blanc">
               <p>$booking $date $price_calcul $status</p>
               <hr>
               <%= link_to "Modifier ma reservation", edit_user_password_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
           </div>
         </div>
-
-        <div class="bordure_grise fond-blanc" >
-          <h3><i class="fa fa-address-card-o" aria-hidden="true"></i>Mes annonces</h3>
-          <div style="  padding: 15px;">
-              <p>$petsitter $description $location $category_animal $price</p>
-              <hr>
-              <%= link_to "Modifier mon annonce", edit_user_password_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
-          </div>
-        </div>
-
-        <div class="bordure_grise fond-blanc" >
-          <h3><i class="fa fa-commenting" aria-hidden="true"></i>Mes commentaires</h3>
-          <div style="  padding: 15px;">
-            <p style="font-style: italic;"><i class="fa fa-quote-left" aria-hidden="true"></i>
-             $commentaire
-            <i class="fa fa-quote-right align-right" aria-hidden="true"></i></p>
-            <div class="row">
-              <div class="col-xs-6">
-               <p> $rating</p>
-              </div>
-
-              <div class="col-xs-6">
-               <p> $name</p>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-
-      </div>
-
-
+    </div>
   </div>
 
 </div>
@@ -91,8 +87,11 @@
     color:white;
   }
   .bordure_grise i {
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .bordure_grise p {
+    font-size: 12px;
   }
   .avatar {
     height: 10em;
@@ -101,6 +100,7 @@
   }
   .fond-blanc {
     background-color: white;
+    padding: 15px;
   }
   .etoiles {
     text-align: left;

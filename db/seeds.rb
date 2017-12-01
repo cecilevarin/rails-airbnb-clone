@@ -39,6 +39,7 @@ gears = [
     user: user_1,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
+    photo: 'http://res.cloudinary.com/totor/image/upload/v1512063463/CabrinhaSwitchBlade2015_plvq7z.png'
   },
   {
     gear_type: "kite",
@@ -63,17 +64,20 @@ gears = [
     user: user_2,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
+    photos: 'http://res.cloudinary.com/totor/image/upload/v1512063466/CabrinhaXOBoard2015_kkuody.jpg'
+
   },
 ]
 
-gears = Gear.create!(gears)
-urls = [
-  'http://img.clubic.com/08254724-photo-xbox-console.jpg',
-  'http://compass.xbox.com/assets/a5/d3/a5d3e0e4-38fd-42ab-90f4-e7b5112af4d1.png'
-]
-gears.each do |gear|
-  gear.photo_urls = urls
-end
-
-puts "#{Gear.count} gears created"
+# gears = Gear.create!(gears)
+# urls = [
+#   'http://res.cloudinary.com/totor/image/upload/v1512063466/CabrinhaXOBoard2015_kkuody.jpg',
+#   'http://res.cloudinary.com/totor/image/upload/v1512063463/CabrinhaSwitchBlade2015_plvq7z.png'
+# ]
+# gears.each do |gear|
+#   gear.photo_urls = urls
+# end
+# gears[0].photos =
+# gears[2].photos =
+# puts "#{Gear.count} gears created"
 

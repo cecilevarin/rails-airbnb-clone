@@ -71,11 +71,14 @@
           <div class="fond-blanc">
               <%  @user_bookings.each do |booking| %>
                 <div data-booking-id="<%= booking.id %>">
-                  <p>id <%= booking.id %>
+                  <p>Booking ID: <%= booking.id %>
+                    - Gear belonging to <%= booking.gear.user.first_name %> -
+                    <%= booking.gear.gear_type %> -
+                    <%= booking.gear.brand %> -
+                    <%= booking.gear.model %> -
                     from: <%= booking.start_date %>
                     to: <%= booking.end_date %>
                     status: <%= booking.status %>
-                    <%= link_to "Delete", gear_booking_path(booking.gear.id,booking.id), method: :delete, remote: true %>
                   </p>
                 </div>
               <% end %>

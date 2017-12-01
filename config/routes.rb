@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create, :destroy, :edit]
   end
 
-  resources :bookings, only: :show
+  resources :bookings, only: [:show, :destroy]
 
   namespace :user do
     resources :dashboards, only: :index

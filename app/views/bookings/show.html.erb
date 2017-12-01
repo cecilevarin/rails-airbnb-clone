@@ -4,6 +4,8 @@
       <h1>Booking confirmed from  <%= "#{@booking.start_date}" %> to <%= "#{@booking.end_date}" %></h1>
       <h2>Gear rent : <%= @gear.model %><%= @gear.brand %></h2>
       <%= link_to 'Back', root_path %>
+      <hr>
+      <%= link_to 'Dashboard', user_dashboards_path %>
     </div>
   </div>
 </div>

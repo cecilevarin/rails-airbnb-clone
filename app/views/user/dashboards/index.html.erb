@@ -12,31 +12,40 @@
                 <div class="row">
 
                   <div class="col-xs-4">
-                    <div class="bordure_grise">
-                      <p><%= gear.gear_type %> <%= gear.brand %></p>
-                      <p><%= gear.model %> size: <%= gear.size %></p>
-                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'NorthEvo2014.jpg' %>');">
-                      </div>
+                      <div class="gear-result">
+                        <h4><%= gear.gear_type %> <%= gear.brand %></h4>
+                        <h4><%= gear.model %> size: <%= gear.size %></h4>
+                          <%= link_to gear_path(gear), method: :get do %>
+                            <div class="photo-content">
+                                 <% if gear.photos? %>
+                                   <% gear.photos.each do |photo| %>
+                                   <%= cl_image_tag photo.path, width: 100, height: 120, crop: :fill %>
+                                   <% end %>
+                                 <% end %>
+                            </div>
+                          <% end %>
                     </div>
                   </div>
 
-                  <div class="col-xs-4">
-                    <div class="bordure_grise">
+                  <div class="col-xs-8">
+                    <div class="gear-result">
                       <% if gear.bookings.count == 0 %>
                       No booking on this gear
                       <% else %>
                         <% gear.bookings.each do |b| %>
-                          booking Nº: <%= b.id %>
+                          <div data-booking-id="<%= b.id %>">
+                          <h4>booking Nº: <%= b.id %></h4>
                           <% if b.status == 0 %>
                              <div>
                                <p>request pending from : <%= b.user.first_name %>
                                <br>from: <%= b.start_date %>
                                 to: <%= b.end_date %>
                                 </p>
-                                <div class="bordure_grise">
-                                    ACCEPT THIS REQUEST?
-                                </div>
+                                ACCEPT THIS REQUEST?
+                                  <p><%= link_to "No", gear_booking_path(gear.id,b.id), method: :delete, remote: true %></p>
                               </div>
+                          </div>
+
                            <% else %>
                              <p>booking ongoing with : <%= b.user.first_name %>
                               <br>status : <%= b.status %>
@@ -48,13 +57,6 @@
                       <% end %>
                     </div>
                   </div>
-
-                  <div class="col-xs-4">
-                    <div class="bordure_grise">
-
-                    </div>
-                  </div>
-
                 </div>
                <% end %>
         </div>
@@ -67,9 +69,17 @@
         <div class="bordure_grise" >
           <h3><i class="fa fa-calendar" aria-hidden="true"></i>My bookings</h3>
           <div class="fond-blanc">
-              <p>$booking $date $price_calcul $status</p>
+              <%  @user_bookings.each do |booking| %>
+                <div data-booking-id="<%= booking.id %>">
+                  <p>id <%= booking.id %>
+                    from: <%= booking.start_date %>
+                    to: <%= booking.end_date %>
+                    status: <%= booking.status %>
+                    <%= link_to "Delete", gear_booking_path(booking.gear.id,booking.id), method: :delete, remote: true %>
+                  </p>
+                </div>
+              <% end %>
               <hr>
-              <%= link_to "Modifier ma reservation", edit_user_password_path, class: " btn btn-primary btn-lg  navbar-wagon-link" %>
           </div>
         </div>
     </div>

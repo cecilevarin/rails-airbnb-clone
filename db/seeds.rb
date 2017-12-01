@@ -19,13 +19,32 @@ user_1 = User.create!(
 )
 
 user_2 = User.create!(
-  first_name:"Victoire",
+  first_name:"Nicolas",
   last_name:"Dup",
   password:"password",
   email:"tast@test.fr",
   post_code:"30300",
   telephone:"0139357157"
 )
+
+user_3 = User.create!(
+  first_name:"Clément",
+  last_name:"Bot",
+  password:"password",
+  email:"tist@test.fr",
+  post_code:"13006",
+  telephone:"0139357157"
+)
+
+user_4 = User.create!(
+  first_name:"Nicolas",
+  last_name:"Top",
+  password:"password",
+  email:"tust@test.fr",
+  post_code:"13006",
+  telephone:"0139357157"
+)
+
 puts "#{User.count} users created"
 
 def seed_photo(file_name)
@@ -82,7 +101,7 @@ gears = [
     size: "8m2",
     model: "Bandit",
     description: "Almost new",
-    user: user_1,
+    user: user_3,
     start_date: Date.parse('22/11/2017'),
     end_date: Date.parse('04/04/2018'),
     photos: seed_photo('FOneBandit2014.jpg')
@@ -108,7 +127,7 @@ gears = [
     size: "10m2",
     model: "RPM",
     description: "You will have fun with this one!",
-    user: user_1,
+    user: user_3,
     start_date: Date.tomorrow+10,
     end_date: Date.tomorrow+50,
     photos: seed_photo('SlingshotRPM.jpg')

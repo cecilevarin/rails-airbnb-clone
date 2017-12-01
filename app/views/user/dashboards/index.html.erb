@@ -1,4 +1,4 @@
-<div class="body-content">
+<div class="view">
   <div class="text-center">
     <h1><%= current_user.first_name %>'s Kitelib dashboard</h1>
   </div>
@@ -15,7 +15,7 @@
                     <div class="bordure_grise">
                       <p><%= gear.gear_type %> <%= gear.brand %></p>
                       <p><%= gear.model %> size: <%= gear.size %></p>
-                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'NorthEvo10.png' %>');">
+                      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'NorthEvo2014.jpg' %>');">
                       </div>
                     </div>
                   </div>
@@ -76,44 +76,3 @@
   </div>
 
 </div>
-
-<style>
-  .bordure_grise h3 {
-  background-color: #ccc;
-  border-bottom: 1px grey solid;
-  margin:0;
-  font-size: 1.2em;
-  padding: 0.4em;
-  }
-  .bordure_grise {
-  border: 1px grey solid;
-  border-radius: 4px;
-  text-align: center;
-  margin-bottom: 2em;
-  }
-  .bordure_grise a {
-    color:white;
-  }
-  .bordure_grise i {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  .bordure_grise p {
-    font-size: 12px;
-  }
- /* .avatar {
-    height: 10em;
-    width: 10em;
-    border-radius: 50%;
-  }*/
-  .fond-blanc {
-    background-color: white;
-    padding: 15px;
-  }
-  .etoiles {
-    text-align: left;
-  }
-  .com-name {
-    text-align: right;
-  }
-</style>

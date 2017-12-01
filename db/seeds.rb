@@ -69,7 +69,7 @@ gears = [
     size: '139 cm',
     model: 'XO',
     description: 'Ok',
-    user: user_2,
+    user: user_1,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
     photos: seed_photo('CabrinhaXOBoard2015.jpg')

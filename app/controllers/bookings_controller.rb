@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking.end_date = end_date
     @booking.user = current_user
     @booking.gear = @gear
+    @booking.status = 0
 
     if @booking.save
       redirect_to booking_path(@booking.id)
@@ -40,7 +41,10 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-
+    respond_to do |format|
+      format.html { redirect_to user_dashboards_path }
+      format.js
+    end
   end
 
 

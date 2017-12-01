@@ -1,21 +1,48 @@
    <div class="view">
- -->  <h1><%= @gear.gear_type %> - <%= @gear.brand %> - <%= @gear.model %></h1>
-  <h2>size: <%= @gear.size %> - year: <%= @gear.year %></h2>
-  <h3><%= @gear.description %></h3>
-  <h2><%= @gear.daily_price/100 %>€ per day</h2>
 
-  <%= simple_form_for [@gear, @booking] do |f| %>
-    <%# f.error_notification %>
-   <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' } %>
-   <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
-   <%= f.button :submit, "Book this gear" %>
-  <% end %>
 
-<% if @gear.photos? %>
-  <% @gear.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-<% end %>
+
+<div class="gear-detail-header">
+
+  <div class="main-content">
+
+   <div class="left-content">
+      <h3><%= @gear.gear_type %> - <%= @gear.brand %> - <%= @gear.model %> - <%= @gear.year %></h3>
+      <h3>size: <%= @gear.size %> </h3>
+      <p><%= @gear.description %></p>
+   </div>
+
+   <div class="right-content">
+      <div class="right-content-price">
+        <h3><%= @gear.daily_price/100 %>€ per day
+        </h3>
+      </div>
+      <div class="right-content-element">
+       <%= simple_form_for [@gear, @booking] , wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
+        <%# f.error_notification %>
+         <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' },  placeholder: "Start date" %>
+        <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' }, placeholder: "End date" %>
+        <%= f.button :submit, "Book this gear" %>
+        <% end %>
+
+        </div>
+     </div>
+
+
+     </div>
+
+      <div class="photo-content">
+          <% if @gear.photos? %>
+          <% @gear.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 200, height: 300, crop: :fill %>
+          <% end %>
+          <% end %>
+
+     </div>
+</div>
+
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>');">
 </div>
+
+
 </div>

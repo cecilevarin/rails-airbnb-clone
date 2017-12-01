@@ -2,7 +2,6 @@
 
 <%= render 'pages/home' %>
 
-<div class="container">
 
   <div class="text-center row" >
     <div class="col-xs-12">
@@ -60,56 +59,58 @@
     <% end %>
   </div>
 
-  <div class="row">
-    <%@gears.each do |gear| %>
- <div class="col-xs-12 col-sm-4">
-       <%= link_to gear_path(gear), method: :get do %>
-           <div class="card">
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
-                 <div class="card-description">
-                   <h2><%= gear.gear_type.capitalize %> </h2>
-                   <p><%= gear.model %></p>
-                </div>
-                  <!--changer le path -->
-                 <!--  -->
-                 </div>
-           </div>
-    <% end %>
-      </div>
 
+    <div class="row">
+      <%@gears.each do |gear| %>
      <div class="col-xs-12 col-sm-4">
-       <%= link_to gear_path(gear), method: :get do %>
-           <div class="card">
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
-                 <div class="card-description">
-                   <h2><%= gear.gear_type.capitalize %> </h2>
-                   <p><%= gear.model %></p>
-                </div>
-                  <!--changer le path -->
-                 <!--  -->
-                 </div>
-           </div>
-    <% end %>
-      </div>
+         <%= link_to gear_path(gear), method: :get do %>
+             <div class="card">
+                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                   <div class="card-description">
+                     <h2><%= gear.gear_type.capitalize %> </h2>
+                     <p><%= gear.model %></p>
+                  </div>
+                    <!--changer le path -->
+                   <!--  -->
+                   </div>
+             </div>
+      <% end %>
+        </div>
 
-    <div class="col-xs-12 col-sm-4">
-       <%= link_to gear_path(gear), method: :get do %>
-           <div class="card">
-              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
-                 <div class="card-description">
-                   <h2><%= gear.gear_type.capitalize %> </h2>
-                   <p><%= gear.model %></p>
-                </div>
-                  <!--changer le path -->
-                 <!--  -->
-                 </div>
-           </div>
-    <% end %>
-      </div>
-    <% end %>
-  </div>
+       <div class="col-xs-12 col-sm-4">
+         <%= link_to gear_path(gear), method: :get do %>
+             <div class="card">
+                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                   <div class="card-description">
+                     <h2><%= gear.gear_type.capitalize %> </h2>
+                     <p><%= gear.model %></p>
+                  </div>
+                    <!--changer le path -->
+                   <!--  -->
+                   </div>
+             </div>
+      <% end %>
+        </div>
 
-</div>
+      <div class="col-xs-12 col-sm-4">
+         <%= link_to gear_path(gear), method: :get do %>
+             <div class="card">
+                <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'switchblade.jpg' %>'); ">
+                   <div class="card-description">
+                     <h2><%= gear.gear_type.capitalize %> </h2>
+                     <p><%= gear.model %></p>
+                  </div>
+                    <!--changer le path -->
+                   <!--  -->
+                   </div>
+             </div>
+      <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+<!-- </div> -->
 
 
 

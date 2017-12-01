@@ -8,7 +8,7 @@ Gear.destroy_all
 
 Booking.destroy_all
 User.destroy_all
-
+puts 'creating users...'
 user_1 = User.create!(
   first_name:"Victor",
   last_name:"Dup",
@@ -26,6 +26,13 @@ user_2 = User.create!(
   post_code:"30300",
   telephone:"0139357157"
 )
+puts "#{User.count} users created"
+
+def seed_photo(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/#{file_name}"))
+end
+
+
 
 gears = [
   {
@@ -39,7 +46,7 @@ gears = [
     user: user_1,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
-    photo: 'http://res.cloudinary.com/totor/image/upload/v1512063463/CabrinhaSwitchBlade2015_plvq7z.png'
+    photos: seed_photo('CabrinhaSwitchBlade2015.png')
   },
   {
     gear_type: "kite",
@@ -52,6 +59,7 @@ gears = [
     user: user_2,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
+    photos: seed_photo('NorthEvo2014.jpg')
   },
   {
     gear_type: "board",
@@ -64,12 +72,51 @@ gears = [
     user: user_2,
     start_date: Date.tomorrow,
     end_date: Date.tomorrow+10,
-    photos: 'http://res.cloudinary.com/totor/image/upload/v1512063466/CabrinhaXOBoard2015_kkuody.jpg'
-
+    photos: seed_photo('CabrinhaXOBoard2015.jpg')
+  },
+  {
+    gear_type: "kite",
+    year: 2014,
+    brand: "F-One",
+    daily_price: 5500,
+    size: "8m2",
+    model: "Bandit",
+    description: "Almost new",
+    user: user_1,
+    start_date: Date.parse('22/11/2017'),
+    end_date: Date.parse('04/04/2018'),
+    photos: seed_photo('FOneBandit2014.jpg')
+  },
+  {
+    gear_type: "board",
+    year: 2013,
+    brand: "North",
+    daily_price: 3000,
+    size: "140cm",
+    model: "Woohoo",
+    description: "A few litte strips below the board but you will have great wave surfing with it",
+    user: user_2,
+    start_date: Date.parse('30/11/2017'),
+    end_date: Date.parse('09/04/2018'),
+    photos: seed_photo('NorthWhoohooBoard.png')
+  },
+  {
+    gear_type: "kite",
+    year: 2017,
+    brand: "Slingshot",
+    daily_price: 8000,
+    size: "10m2",
+    model: "RPM",
+    description: "You will have fun with this one!",
+    user: user_1,
+    start_date: Date.tomorrow+10,
+    end_date: Date.tomorrow+50,
+    photos: seed_photo('SlingshotRPM.jpg')
   },
 ]
-
-# gears = Gear.create!(gears)
+puts 'creating gear'
+gears = Gear.create!(gears)
+puts "#{Gear.count} gears created"
 # urls = [
 #   'http://res.cloudinary.com/totor/image/upload/v1512063466/CabrinhaXOBoard2015_kkuody.jpg',
 #   'http://res.cloudinary.com/totor/image/upload/v1512063463/CabrinhaSwitchBlade2015_plvq7z.png'
@@ -79,5 +126,5 @@ gears = [
 # end
 # gears[0].photos =
 # gears[2].photos =
-# puts "#{Gear.count} gears created"
+
 

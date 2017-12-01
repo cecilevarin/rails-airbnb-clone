@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>Nice job !</h1>
-      <h3>Your booking is confirmed from  <%= "#{@booking.start_date}" %> to <%= "#{@booking.end_date}" %></h3>
-      <p>Gear rent : <%= @gear.model %><%= @gear.brand %></p>
-      <p>This gear belongs to : <%= @gear.user.first_name %></p>
+      <div class=" booking-show-content col-xs-12 col-sm-8 col-sm-offset-2">
+        <h1>Nice job !</h1>
+        <h3>Your booking is confirmed from  <%= "#{@booking.start_date}" %> to <%= "#{@booking.end_date}" %></h3>
+        <p>Gear rent : <%= @gear.model %><%= @gear.brand %></p>
+        <p>This gear belongs to : <%= @gear.user.first_name %></p>
 
-      <%= link_to 'Back', root_path %>
-      <hr>
-      <%= link_to 'Dashboard', user_dashboards_path %>
-    </div>
+       <div class="row">
+        <p class= "col-xs-4 ">  <%= link_to 'Back', root_path %></p>
+          <p class= "col-xs-6 offset-3 text-right "><%= link_to 'Dashboard', user_dashboards_path %></p>
+       </div>
+      </div>
   </div>
 </div>
